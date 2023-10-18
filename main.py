@@ -1,0 +1,39 @@
+import random
+
+word = ["apple", "banana", "orange", "blueberry"]
+random_word = random.choice(word)
+guessed_word = "*" * len(random_word)
+print(guessed_word)
+
+answer_right_word = ["Bingo!", "You're right!", "You guessed it!", "That's correct!"]
+rn_answer_right_word = random.choice(answer_right_word)
+
+attempts = 10
+
+print(f"start, the word consists of {len(random_word)} letters")
+while attempts > 0:
+    letter = input().lower()
+
+    if letter in random_word:
+        rn_answer_right_word = random.choice(answer_right_word)
+        print(rn_answer_right_word)
+        print("")
+
+        new_guessed_word = ""
+        for i in range(len(random_word)):
+            if random_word[i] == letter:
+                new_guessed_word += letter
+            else:
+                new_guessed_word += guessed_word[i]
+        guessed_word = new_guessed_word
+        print(new_guessed_word)
+        if new_guessed_word == random_word:
+            print("win")
+            break
+    else:
+        print("There is not letter")
+        attempts -= 1
+        print(f"You've got {attempts} attempt left")
+    if attempts == 0:
+        print("you lose")
+        break
