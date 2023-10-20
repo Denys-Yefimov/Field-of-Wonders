@@ -9,13 +9,11 @@ answer_right_word = ["Bingo!", "You're right!", "You guessed it!", "That's corre
 rn_answer_right_word = random.choice(answer_right_word)
 
 
-
 print(f"start, the word consists of {len(random_word)} letters")
 
 whole_word = ""
 while attempts > 0:
     letter = input("Enter either a single letter ir a whole word\n").lower()
-
 
     if letter == random_word:
         print(rn_answer_right_word)
@@ -25,8 +23,6 @@ while attempts > 0:
         print("This is not true word")
         attempts -= 1
         print(f"You've got {attempts} attempt left")
-
-
 
     if letter in random_word:
         rn_answer_right_word = random.choice(answer_right_word)
@@ -51,5 +47,3 @@ while attempts > 0:
     if attempts == 0:
         print("you lose")
         break
-
-
