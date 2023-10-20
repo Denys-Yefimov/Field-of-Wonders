@@ -19,16 +19,9 @@ while attempts > 0:
         print(rn_answer_right_word)
         print("You win")
         break
-    else:
-        print("This is not true word")
-        attempts -= 1
-        print(f"You've got {attempts} attempt left")
 
-    if letter in random_word:
-        rn_answer_right_word = random.choice(answer_right_word)
+    elif letter in random_word:
         print(rn_answer_right_word)
-        print("")
-
         new_guessed_word = ""
         for i in range(len(random_word)):
             if random_word[i] == letter:
@@ -41,9 +34,16 @@ while attempts > 0:
             print("win")
             break
     else:
-        print("There is not letter")
+        print("This is not true word")
         attempts -= 1
         print(f"You've got {attempts} attempt left")
+
+
+
+    # if letter not in random_word:
+    #     print("There is not letter")
+    #     attempts -= 1
+    #     print(f"You've got {attempts} attempt left")
     if attempts == 0:
         print("you lose")
         break
