@@ -1,5 +1,5 @@
 import random
-
+attempts = int(input("Enter the number of attempts\n"))
 word = ["apple", "banana", "orange", "blueberry"]
 random_word = random.choice(word)
 guessed_word = "*" * len(random_word)
@@ -8,11 +8,25 @@ print(guessed_word)
 answer_right_word = ["Bingo!", "You're right!", "You guessed it!", "That's correct!"]
 rn_answer_right_word = random.choice(answer_right_word)
 
-attempts = 10
+
 
 print(f"start, the word consists of {len(random_word)} letters")
+
+whole_word = ""
 while attempts > 0:
-    letter = input().lower()
+    letter = input("Enter either a single letter ir a whole word\n").lower()
+
+
+    if letter == random_word:
+        print(rn_answer_right_word)
+        print("You win")
+        break
+    else:
+        print("This is not true word")
+        attempts -= 1
+        print(f"You've got {attempts} attempt left")
+
+
 
     if letter in random_word:
         rn_answer_right_word = random.choice(answer_right_word)
@@ -37,3 +51,5 @@ while attempts > 0:
     if attempts == 0:
         print("you lose")
         break
+
+
